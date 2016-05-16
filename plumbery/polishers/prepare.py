@@ -190,6 +190,8 @@ class PreparePolisher(PlumberyPolisher):
             target_ip = node.private_ips[0]
 
         # guess location of user key
+        #AK---if the user is using ssh keys to authenticatoin then do this check
+        #otherwise the code throws an exception even though there is no key required for ssh password authentication
         path = os.path.expanduser('~/.ssh/id_rsa')
 
         # use libcloud to communicate with remote nodes
